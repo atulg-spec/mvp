@@ -1,5 +1,7 @@
-{% load static %}<!DOCTYPE html>
+{% load static %}
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,7 +9,8 @@
 
   <!-- SEO Meta -->
   <title>{% block meta_title %}StartMarket — Building MVPs for Startups{% endblock %}</title>
-  <meta name="description" content="{% block meta_description %}StartMarket helps startups launch fast by building MVPs, custom websites, and scalable software products.{% endblock %}" />
+  <meta name="description"
+    content="{% block meta_description %}StartMarket helps startups launch fast by building MVPs, custom websites, and scalable software products.{% endblock %}" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="StartMarket" />
   <link rel="canonical" href="{{ request.build_absolute_uri }}" />
@@ -16,8 +19,10 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="StartMarket" />
   <meta property="og:title" content="{% block og_title %}StartMarket — Building MVPs for Startups{% endblock %}" />
-  <meta property="og:description" content="{% block og_description %}We Build MVPs That Launch Startups Faster.{% endblock %}" />
+  <meta property="og:description"
+    content="{% block og_description %}We Build MVPs That Launch Startups Faster.{% endblock %}" />
   <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+  <meta name="theme-color" content="#F9FAFB">
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="StartMarket — Building MVPs for Startups" />
   <meta name="twitter:description" content="We Build MVPs That Launch Startups Faster." />
@@ -55,6 +60,7 @@
   <!-- Extra head content -->
   {% block extra_head %}{% endblock %}
 </head>
+
 <body class="bg-white text-black antialiased">
 
   <!-- ===== NAVBAR ===== -->
@@ -62,22 +68,30 @@
     <div class="max-w-7xl mx-auto flex items-center justify-between">
 
       <!-- Logo -->
-      <a href="{% url 'core:home' %}" class="text-xl font-black tracking-tight text-black hover:opacity-70 transition-opacity duration-300" aria-label="StartMarket — Home">
+      <a href="{% url 'core:home' %}"
+        class="text-xl font-black tracking-tight text-black hover:opacity-70 transition-opacity duration-300"
+        aria-label="StartMarket — Home">
         Start<span class="font-light">Market</span>
       </a>
 
       <!-- Desktop Nav Links -->
       <div class="hidden lg:flex items-center gap-10">
-        <a href="{% url 'core:home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a>
-        <a href="{% url 'core:services' %}" class="nav-link {% if request.resolver_match.url_name == 'services' %}active{% endif %}">Services</a>
-        <a href="{% url 'core:portfolio' %}" class="nav-link {% if request.resolver_match.url_name == 'portfolio' %}active{% endif %}">Work</a>
-        <a href="{% url 'core:about' %}" class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">About</a>
-        <a href="{% url 'core:contact' %}" class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Contact</a>
+        <a href="{% url 'core:home' %}"
+          class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a>
+        <a href="{% url 'core:services' %}"
+          class="nav-link {% if request.resolver_match.url_name == 'services' %}active{% endif %}">Services</a>
+        <a href="{% url 'core:portfolio' %}"
+          class="nav-link {% if request.resolver_match.url_name == 'portfolio' %}active{% endif %}">Work</a>
+        <a href="{% url 'core:about' %}"
+          class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">About</a>
+        <a href="{% url 'core:contact' %}"
+          class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Contact</a>
       </div>
 
       <!-- CTA + Hamburger -->
       <div class="flex items-center gap-6">
-        <a href="{% url 'core:contact' %}" class="hidden lg:inline-flex btn-primary text-sm" aria-label="Book a free consultation">
+        <a href="{% url 'core:contact' %}" class="hidden lg:inline-flex btn-primary text-sm"
+          aria-label="Book a free consultation">
           Book a Call →
         </a>
         <!-- Hamburger -->
@@ -92,7 +106,8 @@
 
   <!-- ===== MOBILE NAV ===== -->
   <div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Mobile navigation">
-    <button class="absolute top-6 right-6 text-3xl font-light text-black" id="mobile-nav-close" aria-label="Close menu">✕</button>
+    <button class="absolute top-6 right-6 text-3xl font-light text-black" id="mobile-nav-close"
+      aria-label="Close menu">✕</button>
     <a href="{% url 'core:home' %}" class="mobile-nav-link">Home</a>
     <a href="{% url 'core:services' %}" class="mobile-nav-link">Services</a>
     <a href="{% url 'core:portfolio' %}" class="mobile-nav-link">Work</a>
@@ -146,7 +161,9 @@
               </a>
             </li>
             <li>
-              <a href="{% url 'core:contact' %}" class="btn-secondary border-white text-white hover:bg-white hover:text-black mt-4 inline-flex" style="padding: 0.6rem 1.4rem; font-size: 0.75rem;">
+              <a href="{% url 'core:contact' %}"
+                class="btn-secondary border-white text-white hover:bg-white hover:text-black mt-4 inline-flex"
+                style="padding: 0.6rem 1.4rem; font-size: 0.75rem;">
                 Book a Free Consultation →
               </a>
             </li>
@@ -219,4 +236,5 @@
 
   {% block extra_js %}{% endblock %}
 </body>
+
 </html>
