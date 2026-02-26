@@ -1,0 +1,185 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block meta_title %}Contact — StartMarket{% endblock %}
+{% block meta_description %}Book a free consultation with StartMarket. Tell us about your startup and we'll help you
+launch faster. Email: startmarket.in@gmail.com{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<header class="page-header px-6 lg:px-12" aria-labelledby="contact-headline">
+    <div class="max-w-7xl mx-auto">
+        <p class="section-label mb-6 animate-fade-in-up" style="opacity: 0; animation-fill-mode: forwards;">Get in Touch
+        </p>
+        <h1 id="contact-headline" class="text-5xl lg:text-7xl font-black tracking-tight leading-none animate-fade-in-up"
+            style="animation-delay: 0.2s; opacity: 0; animation-fill-mode: forwards;">
+            Let's build<br />
+            <span class="font-display italic font-normal">something</span> great.
+        </h1>
+    </div>
+</header>
+
+<!-- Contact Content -->
+<section class="py-16 pb-32 px-6 lg:px-12" aria-label="Contact form and information">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-16">
+
+            <!-- Left: Info -->
+            <div class="lg:col-span-2 reveal-left">
+                <h2 class="text-2xl font-black mb-8">Book a Free Consultation</h2>
+
+                <div class="space-y-8">
+                    <div>
+                        <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">Email</p>
+                        <a href="mailto:startmarket.in@gmail.com"
+                            class="text-black font-medium hover:opacity-60 transition-opacity"
+                            aria-label="Email StartMarket">
+                            startmarket.in@gmail.com
+                        </a>
+                    </div>
+
+                    <div>
+                        <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">Response Time</p>
+                        <p class="text-gray-700">Within 24 hours</p>
+                    </div>
+
+                    <div>
+                        <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">Consultation</p>
+                        <p class="text-gray-700">Free · 30 minutes · No commitments</p>
+                    </div>
+
+                    <div>
+                        <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-3">Based In</p>
+                        <p class="text-gray-700">India 🇮🇳 · Working globally</p>
+                    </div>
+                </div>
+
+                <!-- Mini trust signals -->
+                <div class="mt-12 p-6 border border-gray-100 bg-gray-50">
+                    <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-5">Why StartMarket</p>
+                    <ul class="space-y-3">
+                        <li class="flex gap-3 items-start text-sm text-gray-600">
+                            <span class="text-black font-bold flex-shrink-0">✓</span>
+                            <span>40+ MVPs and products delivered</span>
+                        </li>
+                        <li class="flex gap-3 items-start text-sm text-gray-600">
+                            <span class="text-black font-bold flex-shrink-0">✓</span>
+                            <span>4–8 week delivery for most projects</span>
+                        </li>
+                        <li class="flex gap-3 items-start text-sm text-gray-600">
+                            <span class="text-black font-bold flex-shrink-0">✓</span>
+                            <span>100% code ownership — always</span>
+                        </li>
+                        <li class="flex gap-3 items-start text-sm text-gray-600">
+                            <span class="text-black font-bold flex-shrink-0">✓</span>
+                            <span>Transparent pricing, no hidden costs</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Right: Form -->
+            <div class="lg:col-span-3 reveal">
+
+                <!-- Success Message -->
+                {% if messages %}
+                {% for message in messages %}
+                {% if 'success' in message.message %}
+                <div class="border border-black bg-black text-white p-8 mb-8 animate-fade-in" role="alert"
+                    aria-live="polite">
+                    <div class="flex items-start gap-4">
+                        <span class="text-2xl" aria-hidden="true">✓</span>
+                        <div>
+                            <h3 class="font-bold text-lg mb-1">Message Received!</h3>
+                            <p class="text-gray-300">
+                                Thanks for reaching out. We'll review your enquiry and get back to you within 24 hours
+                                at <strong>startmarket.in@gmail.com</strong>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% if 'error' in message.message %}
+                <div class="border border-red-300 bg-red-50 text-red-700 p-6 mb-8" role="alert" aria-live="polite">
+                    <p class="font-semibold">Please fix the errors below and try again.</p>
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+
+                <!-- Contact Form -->
+                <form method="POST" action="{% url 'core:contact' %}" novalidate aria-label="Contact form">
+                    {% csrf_token %}
+
+                    <div class="space-y-8">
+
+                        <!-- Name -->
+                        <div class="form-group">
+                            <label for="{{ form.name.id_for_label }}" class="sr-only">Name</label>
+                            {{ form.name }}
+                            {% if form.name.errors %}
+                            <p class="text-red-500 text-xs mt-2">{{ form.name.errors|join:", " }}</p>
+                            {% endif %}
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="{{ form.email.id_for_label }}" class="sr-only">Email</label>
+                            {{ form.email }}
+                            {% if form.email.errors %}
+                            <p class="text-red-500 text-xs mt-2">{{ form.email.errors|join:", " }}</p>
+                            {% endif %}
+                        </div>
+
+                        <!-- Company -->
+                        <div class="form-group">
+                            <label for="{{ form.company.id_for_label }}" class="sr-only">Company</label>
+                            {{ form.company }}
+                            {% if form.company.errors %}
+                            <p class="text-red-500 text-xs mt-2">{{ form.company.errors|join:", " }}</p>
+                            {% endif %}
+                        </div>
+
+                        <!-- Service -->
+                        <div class="form-group">
+                            <label for="{{ form.service.id_for_label }}"
+                                class="block text-xs text-gray-400 mb-2 uppercase tracking-widest">
+                                Service interested in
+                            </label>
+                            {{ form.service }}
+                            {% if form.service.errors %}
+                            <p class="text-red-500 text-xs mt-2">{{ form.service.errors|join:", " }}</p>
+                            {% endif %}
+                        </div>
+
+                        <!-- Message -->
+                        <div class="form-group">
+                            <label for="{{ form.message.id_for_label }}" class="sr-only">Message</label>
+                            {{ form.message }}
+                            {% if form.message.errors %}
+                            <p class="text-red-500 text-xs mt-2">{{ form.message.errors|join:", " }}</p>
+                            {% endif %}
+                        </div>
+
+                        <!-- Submit -->
+                        <div class="pt-4">
+                            <button type="submit" class="btn-primary w-full justify-center text-center cursor-pointer"
+                                aria-label="Send your message to StartMarket">
+                                Send Message →
+                            </button>
+                            <p class="text-gray-400 text-xs text-center mt-4">
+                                By submitting, you agree to our
+                                <span class="underline cursor-default">Privacy Policy</span>.
+                                We never share your data.
+                            </p>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

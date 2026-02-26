@@ -1,0 +1,493 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block meta_title %}StartMarket — Building MVPs for Startups{% endblock %}
+{% block meta_description %}StartMarket helps startups launch fast by building MVPs, custom websites, and scalable
+software products. Book a free consultation today.{% endblock %}
+{% block og_title %}StartMarket — Building MVPs for Startups{% endblock %}
+{% block og_description %}We Build MVPs That Launch Startups Faster. Expert MVP Development, Custom Websites, SaaS,
+Consulting.{% endblock %}
+
+{% block content %}
+
+<!-- ===== HERO ===== -->
+<section class="hero-section px-6 lg:px-12" aria-labelledby="hero-headline">
+    <div class="hero-bg-text" aria-hidden="true">SM</div>
+    <div class="max-w-7xl mx-auto w-full">
+        <div class="max-w-4xl">
+
+            <!-- Label -->
+            <p class="section-label mb-8 animate-fade-in-up"
+                style="animation-delay: 0.1s; opacity: 0; animation-fill-mode: forwards;">
+                ✦ Tech studio for founders
+            </p>
+
+            <!-- Headline -->
+            <h1 id="hero-headline" class="hero-headline mb-8 animate-fade-in-up"
+                style="animation-delay: 0.3s; opacity: 0; animation-fill-mode: forwards;">
+                We Build MVPs That<br />
+                <span class="font-display italic font-normal">Launch</span> Startups Faster.
+            </h1>
+
+            <!-- Subtext -->
+            <p class="text-gray-500 text-lg md:text-xl max-w-xl leading-relaxed mb-12 animate-fade-in-up"
+                style="animation-delay: 0.5s; opacity: 0; animation-fill-mode: forwards;">
+                From first wireframe to live product — StartMarket builds the software that helps you validate, raise,
+                and grow.
+            </p>
+
+            <!-- CTAs -->
+            <div class="flex flex-col sm:flex-row gap-4 animate-fade-in-up"
+                style="animation-delay: 0.7s; opacity: 0; animation-fill-mode: forwards;">
+                <a href="{% url 'core:contact' %}" class="btn-primary" aria-label="Start your project with StartMarket">
+                    Book a Free Consultation →
+                </a>
+                <a href="{% url 'core:portfolio' %}" class="btn-secondary" aria-label="See our work">
+                    See Our Work
+                </a>
+            </div>
+        </div>
+
+        <!-- Stats row -->
+        <div class="mt-24 pt-12 border-t border-gray-100 grid grid-cols-2 md:grid-cols-4 gap-8 animate-fade-in-up"
+            style="animation-delay: 0.9s; opacity: 0; animation-fill-mode: forwards;">
+            <div>
+                <p class="stat-number">40+</p>
+                <p class="text-gray-500 text-sm mt-2">Projects Delivered</p>
+            </div>
+            <div>
+                <p class="stat-number">30+</p>
+                <p class="text-gray-500 text-sm mt-2">Happy Founders</p>
+            </div>
+            <div>
+                <p class="stat-number">4–8</p>
+                <p class="text-gray-500 text-sm mt-2">Weeks to Launch</p>
+            </div>
+            <div>
+                <p class="stat-number">₹0</p>
+                <p class="text-gray-500 text-sm mt-2">Consultation Fee</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== MARQUEE TICKER ===== -->
+<div class="border-t border-b border-gray-100 py-5 overflow-hidden bg-black text-white" aria-hidden="true">
+    <div class="marquee-wrapper">
+        <div class="marquee-track animate-marquee flex gap-16 items-center pr-16">
+            <span class="text-sm font-semibold uppercase tracking-widest opacity-60">MVP Development</span>
+            <span class="text-gray-600">✦</span>
+            <span class="text-sm font-semibold uppercase tracking-widest opacity-60">SaaS Platforms</span>
+            <span class="text-gray-600">✦</span>
+            <span class="text-sm font-semibold uppercase tracking-widest opacity-60">Custom Websites</span>
+            <span class="text-gray-600">✦</span>
+            <span class="text-sm font-semibold uppercase tracking-widest opacity-60">Tech Consulting</span>
+            <span class="text-gray-600">✦</span>
+            <span class="text-sm font-semibold uppercase tracking-widest opacity-60">Startup Studio</span>
+            <span class="text-gray-600">✦</span>
+            <span class="text-sm font-semibold uppercase tracking-widest opacity-60">Launch Fast</span>
+            <span class="text-gray-600">✦</span>
+            <span class="text-sm font-semibold uppercase tracking-widest opacity-60">MVP Development</span>
+            <span class="text-gray-600">✦</span>
+            <span class="text-sm font-semibold uppercase tracking-widest opacity-60">SaaS Platforms</span>
+            <span class="text-gray-600">✦</span>
+            <span class="text-sm font-semibold uppercase tracking-widest opacity-60">Custom Websites</span>
+            <span class="text-gray-600">✦</span>
+            <span class="text-sm font-semibold uppercase tracking-widest opacity-60">Tech Consulting</span>
+            <span class="text-gray-600">✦</span>
+            <span class="text-sm font-semibold uppercase tracking-widest opacity-60">Startup Studio</span>
+            <span class="text-gray-600">✦</span>
+            <span class="text-sm font-semibold uppercase tracking-widest opacity-60">Launch Fast</span>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PROBLEM SECTION ===== -->
+<section class="py-28 px-6 lg:px-12" aria-labelledby="problem-headline">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+            <div class="reveal-left">
+                <p class="section-label mb-6">The Problem</p>
+                <h2 id="problem-headline" class="text-4xl lg:text-5xl font-black leading-tight tracking-tight mb-6">
+                    Startups fail because<br />they build too slow.
+                </h2>
+            </div>
+
+            <div class="reveal">
+                <p class="text-gray-500 text-lg leading-relaxed mb-8">
+                    Most founders spend months and lakhs on agencies that don't understand startups. By the time you
+                    launch, the market has moved. You've burned runway on features nobody asked for.
+                </p>
+                <div class="space-y-5">
+                    {% for problem in ""|make_list %}{% endfor %}
+                    <div class="flex gap-4 items-start">
+                        <div
+                            class="w-6 h-6 border border-red-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-red-400 text-xs">✕</span>
+                        </div>
+                        <p class="text-gray-600">Traditional agencies take months and charge enterprise prices.</p>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div
+                            class="w-6 h-6 border border-red-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-red-400 text-xs">✕</span>
+                        </div>
+                        <p class="text-gray-600">Freelancers lack the full-stack expertise to build a complete product.
+                        </p>
+                    </div>
+                    <div class="flex gap-4 items-start">
+                        <div
+                            class="w-6 h-6 border border-red-400 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-red-400 text-xs">✕</span>
+                        </div>
+                        <p class="text-gray-600">Template builders create generic products that don't reflect your
+                            vision.</p>
+                    </div>
+                    <div class="flex gap-4 items-start border-t border-gray-100 pt-5 mt-5">
+                        <div
+                            class="w-6 h-6 bg-black rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <span class="text-white text-xs">✓</span>
+                        </div>
+                        <p class="text-black font-semibold">StartMarket launches your MVP in weeks, not months.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SERVICES PREVIEW ===== -->
+<section class="py-28 px-6 lg:px-12 bg-gray-50" aria-labelledby="services-headline">
+    <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+            <div class="reveal-left">
+                <p class="section-label mb-4">What We Do</p>
+                <h2 id="services-headline" class="text-4xl lg:text-5xl font-black tracking-tight leading-tight">
+                    Services built for<br />early-stage startups.
+                </h2>
+            </div>
+            <div class="reveal">
+                <a href="{% url 'core:services' %}" class="btn-secondary" aria-label="Explore all services">
+                    Explore All →
+                </a>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <div class="service-card reveal delay-100 bg-white">
+                <div class="text-3xl mb-6">⚡</div>
+                <h3 class="text-xl font-bold mb-3">MVP Development</h3>
+                <p class="text-gray-500 text-sm leading-relaxed mb-6">Validate your idea with a real, working product in
+                    4–8 weeks.</p>
+                <a href="{% url 'core:services' %}"
+                    class="text-xs font-semibold uppercase tracking-wider border-b border-black pb-0.5 hover:opacity-60 transition-opacity">
+                    Learn More →
+                </a>
+            </div>
+
+            <div class="service-card reveal delay-200 bg-white">
+                <div class="text-3xl mb-6">🌐</div>
+                <h3 class="text-xl font-bold mb-3">Custom Websites</h3>
+                <p class="text-gray-500 text-sm leading-relaxed mb-6">Conversion-focused, SEO-optimised websites that
+                    actually perform.</p>
+                <a href="{% url 'core:services' %}"
+                    class="text-xs font-semibold uppercase tracking-wider border-b border-black pb-0.5 hover:opacity-60 transition-opacity">
+                    Learn More →
+                </a>
+            </div>
+
+            <div class="service-card reveal delay-300 bg-white">
+                <div class="text-3xl mb-6">🚀</div>
+                <h3 class="text-xl font-bold mb-3">SaaS Development</h3>
+                <p class="text-gray-500 text-sm leading-relaxed mb-6">Scalable software products with auth, billing, and
+                    dashboards.</p>
+                <a href="{% url 'core:services' %}"
+                    class="text-xs font-semibold uppercase tracking-wider border-b border-black pb-0.5 hover:opacity-60 transition-opacity">
+                    Learn More →
+                </a>
+            </div>
+
+            <div class="service-card reveal delay-400 bg-white">
+                <div class="text-3xl mb-6">🧠</div>
+                <h3 class="text-xl font-bold mb-3">Tech Consulting</h3>
+                <p class="text-gray-500 text-sm leading-relaxed mb-6">Strategy, architecture, and roadmap before you
+                    write a line of code.</p>
+                <a href="{% url 'core:services' %}"
+                    class="text-xs font-semibold uppercase tracking-wider border-b border-black pb-0.5 hover:opacity-60 transition-opacity">
+                    Learn More →
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section class="py-28 px-6 lg:px-12" aria-labelledby="process-headline">
+    <div class="max-w-7xl mx-auto">
+        <div class="mb-16 reveal">
+            <p class="section-label mb-4">How We Work</p>
+            <h2 id="process-headline" class="text-4xl lg:text-5xl font-black tracking-tight">Our Process</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 border border-gray-200">
+
+            {% for step in "1234"|make_list %}
+            {% if forloop.counter == 1 %}
+            <div class="p-10 border-r border-gray-200 reveal delay-100">
+                <div class="process-step-number">01</div>
+                <h3 class="text-xl font-bold mt-4 mb-3">Discover</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Deep-dive into your idea, market, and goals. We map out
+                    the MVP scope together.</p>
+            </div>
+            {% elif forloop.counter == 2 %}
+            <div class="p-10 border-r border-gray-200 reveal delay-200">
+                <div class="process-step-number">02</div>
+                <h3 class="text-xl font-bold mt-4 mb-3">Design & Build</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">UI/UX mockups, then sprint-based development with
+                    weekly progress demos.</p>
+            </div>
+            {% elif forloop.counter == 3 %}
+            <div class="p-10 border-r border-gray-200 reveal delay-300">
+                <div class="process-step-number">03</div>
+                <h3 class="text-xl font-bold mt-4 mb-3">Launch</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Deployment, QA, and go-live. Your product is live and
+                    in users' hands.</p>
+            </div>
+            {% elif forloop.counter == 4 %}
+            <div class="p-10 reveal delay-400">
+                <div class="process-step-number">04</div>
+                <h3 class="text-xl font-bold mt-4 mb-3">Scale</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Post-launch support, feature iterations, and scaling
+                    based on real user feedback.</p>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- ===== WHY STARTMARKET ===== -->
+<section class="py-28 px-6 lg:px-12 bg-black text-white" aria-labelledby="why-headline">
+    <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+
+            <div class="reveal-left">
+                <p class="section-label text-gray-500 mb-6">Why StartMarket</p>
+                <h2 id="why-headline" class="text-4xl lg:text-5xl font-black tracking-tight leading-tight mb-8">
+                    We think like<br />founders, build<br />like engineers.
+                </h2>
+                <p class="text-gray-400 leading-relaxed text-lg">
+                    We've been in your shoes. We know that every week of delay is runway burned. Every dollar wasted is
+                    a chance not taken. That's why we build lean, fast, and right.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 reveal">
+                <div class="border border-gray-800 p-6 hover:border-gray-600 transition-colors duration-300">
+                    <div class="text-2xl mb-4">🎯</div>
+                    <h3 class="font-bold mb-2">Startup-First Mindset</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">We prioritise speed, budget, and business outcomes
+                        — not over-engineering.</p>
+                </div>
+                <div class="border border-gray-800 p-6 hover:border-gray-600 transition-colors duration-300">
+                    <div class="text-2xl mb-4">🔒</div>
+                    <h3 class="font-bold mb-2">Full Code Ownership</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">You own 100% of the code. No vendor lock-in. Ever.
+                    </p>
+                </div>
+                <div class="border border-gray-800 p-6 hover:border-gray-600 transition-colors duration-300">
+                    <div class="text-2xl mb-4">⚡</div>
+                    <h3 class="font-bold mb-2">Fast Turnaround</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">We ship in weeks, not quarters. Time is your most
+                        precious resource.</p>
+                </div>
+                <div class="border border-gray-800 p-6 hover:border-gray-600 transition-colors duration-300">
+                    <div class="text-2xl mb-4">📞</div>
+                    <h3 class="font-bold mb-2">Transparent Process</h3>
+                    <p class="text-gray-500 text-sm leading-relaxed">Weekly updates, open communication, no surprises.
+                        Always.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PORTFOLIO PREVIEW ===== -->
+<section class="py-28 px-6 lg:px-12" aria-labelledby="portfolio-preview-headline">
+    <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+            <div class="reveal-left">
+                <p class="section-label mb-4">Featured Work</p>
+                <h2 id="portfolio-preview-headline"
+                    class="text-4xl lg:text-5xl font-black tracking-tight leading-tight">
+                    Products we've<br />shipped.
+                </h2>
+            </div>
+            <div class="reveal">
+                <a href="{% url 'core:portfolio' %}" class="btn-secondary">View All Work →</a>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="portfolio-item h-72 reveal delay-100">
+                <div class="w-full h-full flex items-end p-8 relative">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                        <span class="text-6xl opacity-20 font-black">FT</span>
+                    </div>
+                    <div class="relative z-10">
+                        <p class="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-1">SaaS · FinTech</p>
+                        <h3 class="text-xl font-black text-black">FinTrack</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item-overlay">
+                    <div class="portfolio-overlay-content">
+                        <p class="text-xs uppercase tracking-widest text-gray-400 mb-2">SaaS · FinTech</p>
+                        <h3 class="text-xl font-bold">FinTrack</h3>
+                        <p class="text-gray-300 text-sm mt-2">AI-powered personal finance tracker with multi-bank sync.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item h-72 reveal delay-200">
+                <div class="w-full h-full flex items-end p-8 relative">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                        <span class="text-6xl opacity-20 font-black">LP</span>
+                    </div>
+                    <div class="relative z-10">
+                        <p class="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-1">MVP · EdTech</p>
+                        <h3 class="text-xl font-black text-black">LaunchPad</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item-overlay">
+                    <div class="portfolio-overlay-content">
+                        <p class="text-xs uppercase tracking-widest text-gray-400 mb-2">MVP · EdTech</p>
+                        <h3 class="text-xl font-bold">LaunchPad</h3>
+                        <p class="text-gray-300 text-sm mt-2">Online learning platform with live sessions and course
+                            builder.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item h-72 reveal delay-300">
+                <div class="w-full h-full flex items-end p-8 relative">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                        <span class="text-6xl opacity-20 font-black">GC</span>
+                    </div>
+                    <div class="relative z-10">
+                        <p class="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-1">E-Commerce</p>
+                        <h3 class="text-xl font-black text-black">GreenCart</h3>
+                    </div>
+                </div>
+                <div class="portfolio-item-overlay">
+                    <div class="portfolio-overlay-content">
+                        <p class="text-xs uppercase tracking-widest text-gray-400 mb-2">E-Commerce · Sustainability</p>
+                        <h3 class="text-xl font-bold">GreenCart</h3>
+                        <p class="text-gray-300 text-sm mt-2">Sustainable products marketplace with carbon footprint
+                            tracker.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="py-28 px-6 lg:px-12 bg-gray-50" aria-labelledby="testimonials-headline">
+    <div class="max-w-7xl mx-auto">
+        <div class="mb-16 reveal">
+            <p class="section-label mb-4">What Founders Say</p>
+            <h2 id="testimonials-headline" class="text-4xl lg:text-5xl font-black tracking-tight">
+                Trusted by builders.
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <div class="testimonial-card reveal delay-100">
+                <div class="flex gap-1 mb-6" aria-label="5 stars">
+                    {% for i in "12345" %}<span class="text-black text-sm">★</span>{% endfor %}
+                </div>
+                <p class="text-gray-700 leading-relaxed mb-8">
+                    "StartMarket built our entire platform in 6 weeks. We raised a seed round using the MVP they built.
+                    These guys think like founders."
+                </p>
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-10 h-10 bg-black rounded-full flex items-center justify-center text-white font-bold text-sm">
+                        R</div>
+                    <div>
+                        <p class="font-semibold text-sm">Rahul Mehta</p>
+                        <p class="text-gray-500 text-xs">Founder, FinTrack</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card reveal delay-200">
+                <div class="flex gap-1 mb-6" aria-label="5 stars">
+                    {% for i in "12345" %}<span class="text-black text-sm">★</span>{% endfor %}
+                </div>
+                <p class="text-gray-700 leading-relaxed mb-8">
+                    "Our website conversion rate tripled after StartMarket redesigned it. The design is stunning and the
+                    code quality is production-grade."
+                </p>
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-black font-bold text-sm">
+                        P</div>
+                    <div>
+                        <p class="font-semibold text-sm">Priya Nair</p>
+                        <p class="text-gray-500 text-xs">Co-founder, GreenCart</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card reveal delay-300">
+                <div class="flex gap-1 mb-6" aria-label="5 stars">
+                    {% for i in "12345" %}<span class="text-black text-sm">★</span>{% endfor %}
+                </div>
+                <p class="text-gray-700 leading-relaxed mb-8">
+                    "The consultation session alone saved us 3 months of wrong decisions. StartMarket's tech advice is
+                    worth every rupee."
+                </p>
+                <div class="flex items-center gap-4">
+                    <div
+                        class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                        A</div>
+                    <div>
+                        <p class="font-semibold text-sm">Arjun Sharma</p>
+                        <p class="text-gray-500 text-xs">Founder, MediBook</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="py-32 px-6 lg:px-12 bg-black text-white text-center relative overflow-hidden"
+    aria-labelledby="cta-headline">
+    <div class="hero-bg-text text-gray-900" aria-hidden="true" style="left: -5%; opacity: 1;">START</div>
+    <div class="max-w-3xl mx-auto relative z-10 reveal">
+        <p class="section-label text-gray-500 mb-6">Ready to Build?</p>
+        <h2 id="cta-headline" class="text-5xl lg:text-7xl font-black tracking-tight leading-none mb-8">
+            Let's launch<br />
+            <span class="font-display italic font-normal">your</span> startup.
+        </h2>
+        <p class="text-gray-400 text-lg mb-12 max-w-xl mx-auto leading-relaxed">
+            Book a free 30-minute consultation. No commitments. Just clarity on your next steps.
+        </p>
+        <a href="{% url 'core:contact' %}"
+            class="btn-primary bg-white text-black border-white hover:bg-transparent hover:text-white"
+            aria-label="Book a free consultation">
+            👉 Book a Free Consultation
+        </a>
+    </div>
+</section>
+
+{% endblock %}

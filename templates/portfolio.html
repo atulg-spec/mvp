@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block meta_title %}Portfolio — StartMarket{% endblock %}
+{% block meta_description %}Explore MVPs and digital products built by StartMarket for startups across FinTech, EdTech,
+HealthTech, and more.{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<header class="page-header px-6 lg:px-12" aria-labelledby="portfolio-headline">
+    <div class="max-w-7xl mx-auto">
+        <p class="section-label mb-6 animate-fade-in-up" style="opacity: 0; animation-fill-mode: forwards;">Our Work</p>
+        <h1 id="portfolio-headline"
+            class="text-5xl lg:text-7xl font-black tracking-tight leading-none animate-fade-in-up"
+            style="animation-delay: 0.2s; opacity: 0; animation-fill-mode: forwards;">
+            Products we've<br />
+            <span class="font-display italic font-normal">shipped</span> for founders.
+        </h1>
+    </div>
+</header>
+
+<!-- Portfolio Grid -->
+<section class="py-16 px-6 lg:px-12" aria-label="Portfolio projects">
+    <div class="max-w-7xl mx-auto">
+
+        <!-- Filter Labels -->
+        <div class="flex flex-wrap gap-3 mb-12 reveal">
+            <span class="tag-pill bg-black text-white border-black cursor-default">All Projects</span>
+            <span class="tag-pill cursor-default">MVP</span>
+            <span class="tag-pill cursor-default">SaaS</span>
+            <span class="tag-pill cursor-default">E-Commerce</span>
+            <span class="tag-pill cursor-default">HealthTech</span>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            {% for project in projects %}
+            <article class="portfolio-item reveal delay-{{ forloop.counter }}00"
+                aria-labelledby="project-{{ forloop.counter }}">
+
+                <!-- Project thumbnail -->
+                <div class="h-64 relative flex items-center justify-center"
+                    style="background: linear-gradient(135deg, #f5f5f5 0%, #e5e5e5 100%);">
+                    <span class="text-8xl font-black text-gray-200 select-none" aria-hidden="true">
+                        {{ project.title|slice:":2"|upper }}
+                    </span>
+                    <div class="absolute top-4 left-4">
+                        <span class="tag-pill bg-white text-xs">{{ project.year }}</span>
+                    </div>
+                </div>
+
+                <!-- Project info -->
+                <div class="p-6 border-t border-gray-100">
+                    <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">
+                        {{ project.category }}
+                    </p>
+                    <h2 id="project-{{ forloop.counter }}" class="text-xl font-black mb-2">{{ project.title }}</h2>
+                    <p class="text-gray-500 text-sm leading-relaxed mb-4">{{ project.description }}</p>
+                    <div class="flex flex-wrap gap-2">
+                        {% for tag in project.tags %}
+                        <span class="tag-pill text-xs">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <!-- Hover overlay -->
+                <div class="portfolio-item-overlay">
+                    <div class="portfolio-overlay-content">
+                        <p class="text-xs uppercase tracking-widest text-gray-400 mb-2">{{ project.category }}</p>
+                        <h3 class="text-2xl font-bold mb-3">{{ project.title }}</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">{{ project.description }}</p>
+                    </div>
+                </div>
+            </article>
+            {% empty %}
+            <p class="col-span-3 text-center text-gray-400 py-20">No projects yet. Check back soon!</p>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-24 px-6 lg:px-12 bg-black text-white text-center" aria-labelledby="portfolio-cta-headline">
+    <div class="max-w-2xl mx-auto reveal">
+        <h2 id="portfolio-cta-headline" class="text-4xl lg:text-5xl font-black mb-6">
+            Your product could<br />be next.
+        </h2>
+        <p class="text-gray-400 mb-10 text-lg">Join the founders who launched fast with StartMarket.</p>
+        <a href="{% url 'core:contact' %}"
+            class="btn-primary bg-white text-black border-white hover:bg-transparent hover:text-white">
+            👉 Start Your Project
+        </a>
+    </div>
+</section>
+
+{% endblock %}

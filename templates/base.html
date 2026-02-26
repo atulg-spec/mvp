@@ -1,0 +1,222 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- SEO Meta -->
+  <title>{% block meta_title %}StartMarket — Building MVPs for Startups{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}StartMarket helps startups launch fast by building MVPs, custom websites, and scalable software products.{% endblock %}" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="StartMarket" />
+  <link rel="canonical" href="{{ request.build_absolute_uri }}" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="StartMarket" />
+  <meta property="og:title" content="{% block og_title %}StartMarket — Building MVPs for Startups{% endblock %}" />
+  <meta property="og:description" content="{% block og_description %}We Build MVPs That Launch Startups Faster.{% endblock %}" />
+  <meta property="og:url" content="{{ request.build_absolute_uri }}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="StartMarket — Building MVPs for Startups" />
+  <meta name="twitter:description" content="We Build MVPs That Launch Startups Faster." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            display: ['Playfair Display', 'Georgia', 'serif'],
+          },
+          colors: {
+            'sm-black': '#000000',
+            'sm-white': '#ffffff',
+            'sm-grey': {
+              50: '#fafafa',
+              100: '#f5f5f5',
+              200: '#e5e5e5',
+              300: '#d4d4d4',
+              500: '#737373',
+              700: '#404040',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+
+  <!-- Extra head content -->
+  {% block extra_head %}{% endblock %}
+</head>
+<body class="bg-white text-black antialiased">
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar py-5 px-6 lg:px-12" id="navbar" aria-label="Main navigation">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+
+      <!-- Logo -->
+      <a href="{% url 'core:home' %}" class="text-xl font-black tracking-tight text-black hover:opacity-70 transition-opacity duration-300" aria-label="StartMarket — Home">
+        Start<span class="font-light">Market</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <div class="hidden lg:flex items-center gap-10">
+        <a href="{% url 'core:home' %}" class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">Home</a>
+        <a href="{% url 'core:services' %}" class="nav-link {% if request.resolver_match.url_name == 'services' %}active{% endif %}">Services</a>
+        <a href="{% url 'core:portfolio' %}" class="nav-link {% if request.resolver_match.url_name == 'portfolio' %}active{% endif %}">Work</a>
+        <a href="{% url 'core:about' %}" class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">About</a>
+        <a href="{% url 'core:contact' %}" class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Contact</a>
+      </div>
+
+      <!-- CTA + Hamburger -->
+      <div class="flex items-center gap-6">
+        <a href="{% url 'core:contact' %}" class="hidden lg:inline-flex btn-primary text-sm" aria-label="Book a free consultation">
+          Book a Call →
+        </a>
+        <!-- Hamburger -->
+        <button class="hamburger lg:hidden" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== MOBILE NAV ===== -->
+  <div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <button class="absolute top-6 right-6 text-3xl font-light text-black" id="mobile-nav-close" aria-label="Close menu">✕</button>
+    <a href="{% url 'core:home' %}" class="mobile-nav-link">Home</a>
+    <a href="{% url 'core:services' %}" class="mobile-nav-link">Services</a>
+    <a href="{% url 'core:portfolio' %}" class="mobile-nav-link">Work</a>
+    <a href="{% url 'core:about' %}" class="mobile-nav-link">About</a>
+    <a href="{% url 'core:contact' %}" class="mobile-nav-link">Contact</a>
+    <a href="{% url 'core:contact' %}" class="btn-primary mt-4">Book a Call →</a>
+  </div>
+
+  <!-- ===== PAGE CONTENT ===== -->
+  <main id="main-content" tabindex="-1">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-black text-white py-16 px-6 lg:px-12" aria-label="Site footer">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+
+        <!-- Brand -->
+        <div>
+          <p class="text-2xl font-black tracking-tight mb-4">
+            Start<span class="font-light">Market</span>
+          </p>
+          <p class="text-gray-400 text-sm leading-relaxed max-w-xs">
+            A tech studio helping startups launch fast with MVPs, websites, and scalable software.
+          </p>
+          <p class="text-gray-500 text-xs mt-6">
+            Based in India. Building globally.
+          </p>
+        </div>
+
+        <!-- Links -->
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-6">Navigation</p>
+          <ul class="space-y-3">
+            <li><a href="{% url 'core:home' %}" class="footer-link hover:!text-white">Home</a></li>
+            <li><a href="{% url 'core:services' %}" class="footer-link hover:!text-white">Services</a></li>
+            <li><a href="{% url 'core:portfolio' %}" class="footer-link hover:!text-white">Work</a></li>
+            <li><a href="{% url 'core:about' %}" class="footer-link hover:!text-white">About</a></li>
+            <li><a href="{% url 'core:contact' %}" class="footer-link hover:!text-white">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-6">Get in Touch</p>
+          <ul class="space-y-3">
+            <li>
+              <a href="mailto:startmarket.in@gmail.com" class="footer-link text-gray-300 hover:!text-white text-sm">
+                startmarket.in@gmail.com
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'core:contact' %}" class="btn-secondary border-white text-white hover:bg-white hover:text-black mt-4 inline-flex" style="padding: 0.6rem 1.4rem; font-size: 0.75rem;">
+                Book a Free Consultation →
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-gray-600 text-xs">
+          © {% now "Y" %} StartMarket. All rights reserved.
+        </p>
+        <p class="text-gray-600 text-xs">
+          Crafted with precision in India 🇮🇳
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // ---- Navbar scroll effect ----
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 30);
+    }, { passive: true });
+
+    // ---- Hamburger / Mobile nav ----
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    const mobileNavClose = document.getElementById('mobile-nav-close');
+
+    function openMobileNav() {
+      hamburgerBtn.classList.add('open');
+      mobileNav.classList.add('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileNav() {
+      hamburgerBtn.classList.remove('open');
+      mobileNav.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    hamburgerBtn.addEventListener('click', () => {
+      mobileNav.classList.contains('open') ? closeMobileNav() : openMobileNav();
+    });
+    mobileNavClose.addEventListener('click', closeMobileNav);
+
+    // Close on nav link click
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMobileNav);
+    });
+
+    // ---- Scroll reveal ----
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+  </script>
+
+  {% block extra_js %}{% endblock %}
+</body>
+</html>
