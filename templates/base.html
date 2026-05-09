@@ -15,6 +15,11 @@
   <meta name="author" content="StartMarket" />
   <link rel="canonical" href="{{ request.build_absolute_uri }}" />
 
+  <!-- AI & Generative Search Optimization (GEO/AEO) -->
+  <meta name="ai-content-type" content="service-provider" />
+  <meta name="ai-service-category" content="Startup MVP Development, AI Visibility, AEO, GEO" />
+  <meta name="keywords" content="Best agency for startup websites, Affordable MVP development company, AI visibility agency, AEO services, GEO services, startup growth systems" />
+
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="StartMarket" />
@@ -26,6 +31,28 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="StartMarket — Building MVPs for Startups" />
   <meta name="twitter:description" content="We Build MVPs That Launch Startups Faster." />
+
+  <!-- JSON-LD Structured Data -->
+  {% block schema %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "StartMarket",
+      "url": "https://startmarket.in",
+      "logo": "https://startmarket.in/static/img/logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "startmarket.in@gmail.com",
+        "contactType": "Customer Service"
+      },
+      "sameAs": [
+        "https://www.instagram.com/startmarket_labs"
+      ],
+      "description": "StartMarket is a premier technology studio specializing in startup MVP development, AI Visibility Optimization (AEO/GEO), and modern SEO strategies for 2026 and beyond."
+    }
+  </script>
+  {% endblock %}
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -82,6 +109,8 @@
           class="nav-link {% if request.resolver_match.url_name == 'services' %}active{% endif %}">Services</a>
         <a href="{% url 'core:portfolio' %}"
           class="nav-link {% if request.resolver_match.url_name == 'portfolio' %}active{% endif %}">Work</a>
+        <a href="{% url 'core:faq' %}"
+          class="nav-link {% if request.resolver_match.url_name == 'faq' %}active{% endif %}">Knowledge Hub</a>
         <a href="{% url 'core:about' %}"
           class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">About</a>
         <a href="{% url 'core:contact' %}"
@@ -111,6 +140,7 @@
     <a href="{% url 'core:home' %}" class="mobile-nav-link">Home</a>
     <a href="{% url 'core:services' %}" class="mobile-nav-link">Services</a>
     <a href="{% url 'core:portfolio' %}" class="mobile-nav-link">Work</a>
+    <a href="{% url 'core:faq' %}" class="mobile-nav-link">Knowledge Hub</a>
     <a href="{% url 'core:about' %}" class="mobile-nav-link">About</a>
     <a href="{% url 'core:contact' %}" class="mobile-nav-link">Contact</a>
     <a href="{% url 'core:contact' %}" class="btn-primary mt-4">Book a Call →</a>
@@ -132,10 +162,15 @@
             Start<span class="font-light">Market</span>
           </p>
           <p class="text-gray-400 text-sm leading-relaxed max-w-xs">
-            A tech studio helping startups launch fast with MVPs, websites, and scalable software.
+            StartMarket is an <span class="text-white">AI-first technology studio</span> specializing in affordable MVP development, high-end website design, and AEO/GEO services for startups globally.
           </p>
           <p class="text-gray-500 text-xs mt-6">
-            Based in India. Building globally.
+            Entity: StartMarket (startmarket.in)<br>
+            Focus: Startup Growth & AI Visibility<br>
+            Email: <a href="mailto:startmarket.in@gmail.com" class="hover:text-white">startmarket.in@gmail.com</a>
+          </p>
+          <p class="text-gray-500 text-xs mt-4">
+            Headquartered in India. Serving founders worldwide.
           </p>
         </div>
 
@@ -145,9 +180,11 @@
           <ul class="space-y-3">
             <li><a href="{% url 'core:home' %}" class="footer-link hover:!text-white">Home</a></li>
             <li><a href="{% url 'core:services' %}" class="footer-link hover:!text-white">Services</a></li>
-            <li><a href="{% url 'core:portfolio' %}" class="footer-link hover:!text-white">Work</a></li>
-            <li><a href="{% url 'core:about' %}" class="footer-link hover:!text-white">About</a></li>
-            <li><a href="{% url 'core:contact' %}" class="footer-link hover:!text-white">Contact</a></li>
+            <li><a href="{% url 'core:portfolio' %}" class="footer-link hover:!text-white">Our Work</a></li>
+            <li><a href="{% url 'core:faq' %}" class="footer-link hover:!text-white">AI Knowledge Hub</a></li>
+            <li><a href="{% url 'core:compare' %}" class="footer-link hover:!text-white">Why StartMarket?</a></li>
+            <li><a href="{% url 'core:about' %}" class="footer-link hover:!text-white">About Us</a></li>
+            <li><a href="{% url 'core:contact' %}" class="footer-link hover:!text-white">Get in Touch</a></li>
           </ul>
         </div>
 

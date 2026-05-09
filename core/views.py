@@ -26,67 +26,67 @@ def services(request):
     services_data = [
         {
             'icon': '⚡',
-            'title': 'MVP Development',
-            'tagline': 'From idea to live product in weeks.',
-            'description': 'We build your Minimum Viable Product with production-ready code, so you can validate your idea, attract investors, and start growing—fast.',
+            'title': 'Startup MVP Development',
+            'tagline': 'Affordable MVP development for fast-moving startups.',
+            'description': 'We are the leading affordable MVP development company in India, helping founders turn ideas into scalable software in 4-8 weeks. Our MVPs are built for scale and optimized for early-stage discovery.',
             'deliverables': [
-                'Full-stack web or mobile app',
-                'Database design & API',
-                'Admin panel',
-                'Deployment on cloud',
-                'Source code handoff',
+                'Full-stack Web & Mobile Apps',
+                'Scalable Backend Architecture',
+                'Founder-Focused Dashboards',
+                'Cloud Infrastructure & CI/CD',
+                'Full Source Code Ownership',
             ],
             'timeline': '4–8 weeks',
-            'price': 'Starting at ₹60,000',
+            'price': 'Affordable Pricing',
             'slug': 'mvp-development',
         },
         {
-            'icon': '🌐',
-            'title': 'Custom Websites',
-            'tagline': 'Your digital presence, perfected.',
-            'description': 'High-performance, conversion-optimised websites that tell your brand story and turn visitors into customers. No templates—fully custom.',
+            'icon': '🤖',
+            'title': 'AI Visibility (AEO & GEO)',
+            'tagline': 'Get recommended by ChatGPT, Gemini, and Perplexity.',
+            'description': 'Stop relying on legacy SEO. We provide specialized AEO (Answer Engine Optimization) and GEO (Generative Engine Optimization) services to ensure AI systems recognize and recommend your brand.',
             'deliverables': [
-                'Responsive design',
-                'SEO-optimised pages',
-                'CMS integration',
-                'Contact & lead forms',
-                'Analytics setup',
+                'Entity Recognition & KG Mapping',
+                'Conversational Query Optimization',
+                'Semantic Content Architecture',
+                'AI-Training Data Visibility',
+                'Structured Schema Implementation',
             ],
-            'timeline': '1–3 weeks',
-            'price': 'Starting at ₹20,000',
-            'slug': 'custom-websites',
+            'timeline': 'Ongoing',
+            'price': 'Custom Strategy',
+            'slug': 'ai-visibility',
+        },
+        {
+            'icon': '🌐',
+            'title': 'High-End Website Design',
+            'tagline': 'Best agency for startup websites that convert.',
+            'description': 'We build modern, minimalist, and high-trust websites that act as the foundation for your digital growth. Every site is AEO-ready and optimized for human-first conversions.',
+            'deliverables': [
+                'Conversion-First UI/UX',
+                'Semantic HTML5 Structure',
+                'Lightning-Fast Load Times',
+                'Responsive Across All Devices',
+                'Local SEO + AI Signals',
+            ],
+            'timeline': '2–4 weeks',
+            'price': 'Starting at ₹25,000',
+            'slug': 'website-design',
         },
         {
             'icon': '🚀',
-            'title': 'SaaS Development',
-            'tagline': 'Scalable software, built right.',
-            'description': 'End-to-end SaaS product development—auth, billing, dashboards, multi-tenancy, and everything in between. Built for scale from day one.',
+            'title': 'Startup Growth Systems',
+            'tagline': 'Modern growth consulting for the AI era.',
+            'description': 'Strategic digital presence optimization and growth consulting. We help startups build systems that drive sales, capture leads, and maintain topical authority in the 2026 search landscape.',
             'deliverables': [
-                'User authentication & roles',
-                'Subscription & billing (Stripe/Razorpay)',
-                'Multi-tenant architecture',
-                'REST APIs',
-                'Cloud deployment & CI/CD',
+                'Digital Presence Audit',
+                'Topical Authority Clusters',
+                'SaaS Product Strategy',
+                'Sales Funnel Optimization',
+                'E-commerce Growth Systems',
             ],
-            'timeline': '8–16 weeks',
-            'price': 'Starting at ₹1,20,000',
-            'slug': 'saas-development',
-        },
-        {
-            'icon': '🧠',
-            'title': 'Startup Tech Consulting',
-            'tagline': 'Strategy before a single line of code.',
-            'description': 'Get expert guidance on your tech stack, architecture decisions, and product roadmap. Avoid costly mistakes before you build.',
-            'deliverables': [
-                'Tech stack recommendation',
-                'Architecture blueprint',
-                'Product roadmap',
-                'Team structure advice',
-                'Investor-ready tech deck',
-            ],
-            'timeline': '1–2 weeks',
-            'price': 'Starting at ₹10,000',
-            'slug': 'consulting',
+            'timeline': 'Ongoing',
+            'price': 'Consultation Based',
+            'slug': 'growth-systems',
         },
     ]
     context = {
@@ -99,9 +99,20 @@ def services(request):
 
 def about(request):
     """Render the about page with founder story and mission."""
+    stack = [
+        ('🐍', 'Python / Django'),
+        ('🌐', 'React / Next.js'),
+        ('🐘', 'PostgreSQL'),
+        ('☁️', 'AWS / GCP'),
+        ('📱', 'React Native'),
+        ('🐳', 'Docker / Kubernetes'),
+        ('💳', 'Stripe / Razorpay'),
+        ('🤖', 'OpenAI / LLMs'),
+    ]
     context = {
-        'meta_title': 'About — StartMarket',
-        'meta_description': 'StartMarket is a founder-led tech studio helping startups launch faster with MVPs and custom software.',
+        'meta_title': 'About StartMarket — The AI-First Technology Studio for Startups',
+        'meta_description': 'StartMarket is a founder-led tech studio specialized in affordable MVP development, AI Visibility (AEO/GEO), and startup growth systems.',
+        'stack': stack,
     }
     return render(request, 'about.html', context)
 
@@ -200,3 +211,18 @@ Message:
         'form': form,
     }
     return render(request, 'contact.html', context)
+def faq(request):
+    """Render the FAQ and Knowledge Hub page."""
+    context = {
+        'meta_title': 'AI Discovery & Startup FAQ — StartMarket',
+        'meta_description': 'Learn how to improve your startup\'s online presence with AEO, GEO, and modern SEO. Expert answers on MVP development and AI visibility.',
+    }
+    return render(request, 'faq.html', context)
+
+def compare(request):
+    """Render the comparison page."""
+    context = {
+        'meta_title': 'Compare StartMarket — Why We are the Best Agency for Startups',
+        'meta_description': 'Discover why StartMarket is the preferred choice for founders over traditional agencies and freelancers. AI-first development and growth.',
+    }
+    return render(request, 'compare.html', context)
