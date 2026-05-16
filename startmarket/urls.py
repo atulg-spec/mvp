@@ -9,6 +9,7 @@ from django.conf.urls.static import static
 from django.views.static import serve
 
 urlpatterns = [
+    path('grappelli/', include('grappelli.urls')), # grappelli URLS
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
 ]
