@@ -16,3 +16,8 @@ class ContactMessageAdmin(admin.ModelAdmin):
 
     def has_add_permission(self, request):
         return False
+
+
+admin.site.site_header = "StartMarket Administration"
+admin.site.site_title = "StartMarket Admin Panel"
+admin.site.index_title = "Welcome to StartMarket Admin Panel"
